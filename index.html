@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Concurso de Pintura Cooperativito</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: linear-gradient(135deg, #004b87, #006bb6);
+            color: white;
+            padding: 18px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #004b87;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .institution h1 {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .institution p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        nav button {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.5);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .hero {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(
+                rgba(255,255,255,0.94),
+                rgba(255,255,255,0.94)
+            );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .paint-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            color: #004b87;
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero h3 {
+            color: #e2a900;
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 28px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            padding: 14px 25px;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #004b87;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #00375f;
+        }
+
+        .btn-secondary {
+            background: #e2a900;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #c58f00;
+        }
+
+        .info {
+            padding: 50px 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #004b87;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 5px solid #004b87;
+        }
+
+        .card .icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #004b87;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .category {
+            padding: 40px 25px;
+            background: white;
+        }
+
+        .category-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .category-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .category-item {
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            background: #f4f7fb;
+            border: 2px solid #e5e7eb;
+        }
+
+        .category-item h3 {
+            color: #004b87;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .age {
+            font-size: 30px;
+            font-weight: bold;
+            color: #e2a900;
+            margin: 10px 0;
+        }
+
+        footer {
+            background: #00375f;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .hero h3 {
+                font-size: 19px;
+            }
+
+            .category-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">
+            LOGO<br>
+            COOPAC
+        </div>
+
+        <div class="institution">
+            <h1>Cooperativa de Ahorro y Crédito Huancavelica Ltda. 582</h1>
+            <p>Comité de Educación</p>
+        </div>
+
+    </div>
+
+    <nav>
+        <button>Inicio</button>
+        <button>Concurso</button>
+        <button>Participantes</button>
+        <button>Galería</button>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="paint-icon">🎨</div>
+
+        <h2>CONCURSO DE PINTURA</h2>
+
+        <h3>COOPERATIVITO 2026</h3>
+
+        <p>
+            Un espacio para descubrir, estimular y celebrar
+            el talento artístico de nuestros niños y adolescentes,
+            expresando sus sueños e ideas a través del arte.
+        </p>
+
+        <div class="buttons">
+
+            <button class="btn btn-primary">
+                📝 INSCRIBIR PARTICIPANTE
+            </button>
+
+            <button class="btn btn-secondary">
+                📸 VER GALERÍA
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="info">
+
+    <h2 class="section-title">
+        Información del Concurso
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">📅</div>
+
+            <h3>Fecha</h3>
+
+            <p>
+                Próximamente se publicará
+                la fecha oficial del concurso.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">📍</div>
+
+            <h3>Lugar</h3>
+
+            <p>
+                Próximamente se publicará
+                el lugar del evento.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🏆</div>
+
+            <h3>Participación</h3>
+
+            <p>
+                Participa de acuerdo con
+                tu categoría de edad.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="category">
+
+    <div class="category-container">
+
+        <h2 class="section-title">
+            Categorías
+        </h2>
+
+        <div class="category-box">
+
+            <div class="category-item">
+
+                <div class="icon">🎨</div>
+
+                <h3>Categoría A</h3>
+
+                <div class="age">
+                    6 a 10 años
+                </div>
+
+                <p>
+                    Dirigida a niños de
+                    6 hasta 10 años.
+                </p>
+
+            </div>
+
+
+            <div class="category-item">
+
+                <div class="icon">🖌️</div>
+
+                <h3>Categoría B</h3>
+
+                <div class="age">
+                    11 a 17 años
+                </div>
+
+                <p>
+                    Dirigida a niños y adolescentes
+                    de 11 hasta 17 años.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        Cooperativa de Ahorro y Crédito Huancavelica Ltda. 582
+    </p>
+
+    <p>
+        Comité de Educación
+    </p>
+
+    <p>
+        “Tu apoyo para crecer, siempre contigo”
+    </p>
+
+</footer>
+
+</body>
+</html>
